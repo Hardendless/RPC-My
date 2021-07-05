@@ -7,8 +7,9 @@ import java.io.Serializable;
 
 /**
  * 消费者向提供者发送的请求对象
- * @author ziyang
+ * @author Hardendless
  */
+//现在还是使用的java自带的序列化方式
 @Data
 @Builder
 public class RpcRequest implements Serializable {
