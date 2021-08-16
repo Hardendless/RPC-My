@@ -2,7 +2,7 @@ package top.wang.test;
 
 import top.wang.rpc.registry.DefaultServiceRegistry;
 import top.wang.rpc.registry.ServiceRegistry;
-import top.wang.rpc.server.RpcServer;
+import top.wang.rpc.socket.server.SocketServer;
 
 public class TestServer {
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class TestServer {
         ServiceRegistry serviceRegistry = new DefaultServiceRegistry();
         serviceRegistry.register(userService);
         serviceRegistry.register(discussPostService);
-        RpcServer rpcServer = new RpcServer(serviceRegistry);
-        rpcServer.register(userService, 9000);
+        SocketServer socketServer = new SocketServer(serviceRegistry);
+        socketServer.start(9000);
     }
 }

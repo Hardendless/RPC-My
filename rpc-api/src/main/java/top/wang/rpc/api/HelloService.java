@@ -1,5 +1,7 @@
 package top.wang.rpc.api;
 
-public class HelloService {
+public interface HelloService {
+
+    String hello(HelloObject object);
 
 }

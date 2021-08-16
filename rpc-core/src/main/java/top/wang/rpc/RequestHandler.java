@@ -1,4 +1,4 @@
-package top.wang.rpc.server;
+package top.wang.rpc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

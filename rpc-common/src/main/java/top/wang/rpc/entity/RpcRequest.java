@@ -1,5 +1,6 @@
 package top.wang.rpc.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,8 +12,10 @@ import java.io.Serializable;
  */
 //现在还是使用的java自带的序列化方式
 @Data
-@Builder
+@AllArgsConstructor
 public class RpcRequest implements Serializable {
+
+    public RpcRequest() {}
 
     /**
      * 待调用接口名称
