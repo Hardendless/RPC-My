@@ -7,11 +7,13 @@ import top.wang.rpc.api.HelloService;
 import top.wang.rpc.api.User;
 import top.wang.rpc.api.UserService;
 import top.wang.rpc.netty.client.NettyClient;
+import top.wang.rpc.serializer.HessianSerializer;
 
 public class NettyTestClient {
 
     public static void main(String[] args) {
         RpcClient client = new NettyClient("127.0.0.1", 9999);
+        client.setSerializer(new HessianSerializer());
         RpcClientProxy rpcClientProxy = new RpcClientProxy(client);
         HelloService helloService = rpcClientProxy.getProxy(HelloService.class);
         HelloObject object = new HelloObject(12, "This is Hello");

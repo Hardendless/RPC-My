@@ -1,5 +1,7 @@
 package top.wang.rpc;
 
+import top.wang.rpc.serializer.CommonSerializer;
+
 /**
  * 服务器类通用接口
  * @author Hardendless
@@ -7,5 +9,8 @@ package top.wang.rpc;
 public interface RpcServer {
 
     void start(int port);
+
+    void setSerializer(CommonSerializer serializer);
+
 
 }
