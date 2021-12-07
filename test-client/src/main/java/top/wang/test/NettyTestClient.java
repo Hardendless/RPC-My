@@ -19,6 +19,5 @@ public class NettyTestClient {
         HelloObject object = new HelloObject(12, "This is Hello");
         String res = helloService.hello(object);
         System.out.println(res);
-
     }
 }

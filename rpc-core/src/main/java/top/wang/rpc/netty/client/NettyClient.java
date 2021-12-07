@@ -17,6 +17,7 @@ import top.wang.rpc.enumeration.RpcError;
 import top.wang.rpc.exception.RpcException;
 import top.wang.rpc.serializer.CommonSerializer;
 import top.wang.rpc.serializer.JsonSerializer;
+import top.wang.rpc.util.RpcMessageChecker;
 
 
 public class NettyClient implements RpcClient {
@@ -73,8 +74,9 @@ public class NettyClient implements RpcClient {
                     }
                 });
                 channel.closeFuture().sync();
-                AttributeKey<RpcResponse> key = AttributeKey.valueOf("rpcResponse");
+                AttributeKey<RpcResponse> key = AttributeKey.valueOf("rpcResponse" + rpcRequest.getRequestId());
                 RpcResponse rpcResponse = channel.attr(key).get();
+                RpcMessageChecker.check(rpcRequest, rpcResponse);
                 return rpcResponse.getData();
             }
         } catch (InterruptedException e) {
